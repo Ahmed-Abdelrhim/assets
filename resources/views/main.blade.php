@@ -32,6 +32,10 @@
     <script src="{{ asset('plugin/datatables2/datatables.min.js')}}"></script>
     <script src="{{ asset('js/general.js')}}"></script>
 
+    <link rel="stylesheet" href="{{ asset('izitoast/dist/css/iziToast.min.css') }}">
+    <script src="{{ asset('izitoast/dist/js/iziToast.min.js') }}"></script>
+
+
 
 </head>
 
@@ -46,7 +50,7 @@
 
 
             <a href="{{route('home')}}">
-                <img  src="{{asset('site_logo.png')}}" style="width:200px" height="80px"/>
+                <img src="{{asset('site_logo.png')}}" style="width:200px" height="80px"/>
             </a>
 
         </div>
@@ -56,7 +60,7 @@
                 <a href="{{ URL::to( 'home') }}">
                     <p>
                         <img width="22"
-                            src="<?php echo asset('images/icon-dashboard.png')?>"/>&nbsp;&nbsp;&nbsp;<?php echo trans('lang.dashboard'); ?>
+                             src="<?php echo asset('images/icon-dashboard.png')?>"/>&nbsp;&nbsp;&nbsp;<?php echo trans('lang.dashboard'); ?>
                     </p>
                 </a>
             </li>
@@ -319,8 +323,36 @@
             <ul class="topmenu float-md-right float-sm-left">
                 <li>
 
-                    <span class="sidebar-mini"><i class="fa fa-user"></i></span>
-                    <span class="sidebar-normal"><?php echo trans('lang.welcome'); ?>, {{ Auth::user()->fullname }} &nbsp;&nbsp;&nbsp;</span>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown"
+                       class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                        <div class="d-sm-none d-lg-inline-block">
+                            <i class="fa fa-globe"></i>
+                        </div>
+                    </a>
+                    @foreach($languages as $lang)
+                        @if(app()->getLocale() != $lang->iso)
+                            <div class="dropdown-menu menue-flags dropdown-menu-right " style="width: 20px;">
+                                <a href="#" class="dropdown-item flags">
+                                    <a href="{{ route('change_locale',$lang->iso) }}" class="dropdown-item flags">
+                                        @if(app()->getLocale() == 'ar')
+                                            <img src="{{asset('united-states.png')}}"
+                                                 class="flag-icon"> {{strtoupper($lang->iso)}}
+                                        @else
+                                            <img src="{{asset('egypt.png')}}"
+                                                 class="flag-icon">{{strtoupper($lang->iso)}}
+                                        @endif
+                                    </a>
+
+                            </div>
+                        @endif
+                    @endforeach
+
+                </li>
+
+
+                <span class="sidebar-mini"><i class="fa fa-user"></i></span>
+                <span class="sidebar-normal"><?php echo trans('lang.welcome'); ?>, {{ Auth::user()->fullname }} &nbsp;&nbsp;&nbsp;</span>
 
                 </li>
                 <li>
@@ -345,6 +377,52 @@
 </div>
 
 <script>
+
+    @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type','info') }}"
+    switch (type) {
+        case 'info':
+            iziToast.info({
+                title: 'info',
+                message: '{{ session('message') }}',
+                position: 'topRight'
+            });
+            break;
+
+        case 'success':
+            iziToast.success({
+                title: 'Success',
+                message: '{{ session('message') }}',
+                position: 'topRight'
+            });
+            break;
+
+        case 'warning':
+            iziToast.warning({
+                title: 'warning',
+                message: '{{ session('message') }}',
+                position: 'topRight'
+            });
+            break;
+
+        case 'error':
+            iziToast.error({
+                title: 'error',
+                message: '{{ session('message') }}',
+                position: 'topRight'
+            });
+            break;
+    }
+    @endif
+
+
+
+
+
+
+
+
+
     (function($) {
     "use strict";
 
@@ -368,6 +446,8 @@
             });
 
     })(jQuery);
+
+
 
 </script>
 

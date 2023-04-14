@@ -1,6 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LocaleLanguageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('change_locale/{iso}',[LocaleLanguageController::class,'changeLanguage'])->name('change_locale');
+
+Route::get('locale',[LocaleLanguageController::class,'locale']);
 
 Route::get('/','Home@index');
 Route::get('/home','Home@index')->name('home');
