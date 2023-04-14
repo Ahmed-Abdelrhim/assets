@@ -45,7 +45,7 @@
             {{--            </a>--}}
 
 
-            <a>
+            <a href="{{route('home')}}">
                 <img  src="{{asset('site_logo.png')}}" style="width:200px" height="80px"/>
             </a>
 
@@ -54,7 +54,8 @@
 
             <li class="{{ Request::is( 'home') ? 'active' : '' }}">
                 <a href="{{ URL::to( 'home') }}">
-                    <p><img width="22"
+                    <p>
+                        <img width="22"
                             src="<?php echo asset('images/icon-dashboard.png')?>"/>&nbsp;&nbsp;&nbsp;<?php echo trans('lang.dashboard'); ?>
                     </p>
                 </a>

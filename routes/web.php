@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','Home@index');
-Route::get('/home','Home@index');
+Route::get('/home','Home@index')->name('home');
 Route::get('/brandlist','Brand@index');
 Route::get('/departmentlist','Department@index');
 Route::get('/assettypelist','AssetType@index');
