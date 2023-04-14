@@ -3,8 +3,8 @@
 
 <section class="">
     <div class="content p-4">
-       
-       
+
+
         <div class="row">
             <div class="col-lg-3 col-sm-6">
                 <div class="card background-blue color-white">
@@ -18,7 +18,13 @@
                             </div>
                             <div class="col-xs-7 home-detail" >
                                 <div class="numbers">
-                                    <p><?php echo trans('lang.totalasset');?></p>
+                                    <p>
+
+{{--                                        <?php echo trans('lang.totalasset');?>--}}
+                                        {{__('files.totalasset')}}
+
+
+                                    </p>
                                     <span class="totalhead totalasset"></span>
                                 </div>
                             </div>
@@ -45,7 +51,13 @@
                             </div>
                             <div class="col-xs-7 home-detail" >
                                 <div class="numbers">
-                                    <p><?php echo trans('lang.totalcomponent');?></p>
+                                    <p>
+
+{{--                                        <?php echo trans('lang.totalcomponent');?>--}}
+                                        {{__('files.totalcomponent')}}
+
+
+                                    </p>
                                     <span class="totalhead totalcomponent"></span>
                                 </div>
                             </div>
@@ -153,21 +165,70 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th><?php echo trans('lang.asset');?></th>
-                                        <th><?php echo trans('lang.employee');?></th>
-                                        <th><?php echo trans('lang.status');?></th>
-                                        <th><?php echo trans('lang.location');?></th>
-                                        <th><?php echo trans('lang.date');?></th>
+                                        <th>
+
+{{--                                            <?php echo trans('lang.asset');?>--}}
+                                            {{__('files.asset')}}
+                                        </th>
+                                        <th>
+
+{{--                                            <?php echo trans('lang.employee');?>--}}
+                                            {{__('files.employee')}}
+
+                                        </th>
+                                        <th>
+
+{{--                                            <?php echo trans('lang.status');?>--}}
+                                            {{__('files.status')}}
+
+                                        </th>
+                                        <th>
+
+{{--                                            <?php echo trans('lang.location');?>--}}
+                                            {{__('files.location')}}
+
+                                        </th>
+                                        <th>
+
+{{--                                            <?php echo trans('lang.date');?>--}}
+                                            {{__('files.date')}}
+
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
                                         <th>ID</th>
-                                        <th><?php echo trans('lang.asset');?></th>
-                                        <th><?php echo trans('lang.employee');?></th>
-                                        <th><?php echo trans('lang.status');?></th>
-                                        <th><?php echo trans('lang.location');?></th>
-                                        <th><?php echo trans('lang.date');?></th>
+                                        <th>
+
+{{--                                            <?php echo trans('lang.asset');?>--}}
+                                            {{__('files.asset')}}
+
+                                        </th>
+                                        <th>
+
+{{--                                            <?php echo trans('lang.employee');?>--}}
+                                            {{__('files.employee')}}
+
+                                        </th>
+                                        <th>
+
+{{--                                            <?php echo trans('lang.status');?>--}}
+                                            {{__('files.status')}}
+
+                                        </th>
+                                        <th>
+
+{{--                                            <?php echo trans('lang.location');?>--}}
+                                            {{__('files.location')}}
+
+                                        </th>
+                                        <th>
+
+{{--                                            <?php echo trans('lang.date');?>--}}
+                                            {{__('files.date')}}
+
+                                        </th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -223,12 +284,12 @@
 <script>
 $(document).ready(function() {
     $('#recentassetactivity').DataTable({
-       
+
         bFilter:false,
         paging: false,
         bInfo: false ,
         ajax: "{{ url('home/recentassetactivity')}}",
-        
+
         columns: [{
             data: 'id',
                 orderable: false,
@@ -255,12 +316,12 @@ $(document).ready(function() {
     });
 
     $('#recentcomponentactivity').DataTable({
-       
+
         bFilter:false,
         paging: false,
         bInfo: false ,
         ajax: "{{ url('home/recentcomponentactivity')}}",
-        
+
         columns: [{
             data: 'id',
                 orderable: false,
@@ -289,7 +350,7 @@ $(document).ready(function() {
         dom: 'lfrtip',
     });
 
-    
+
     //asset by type
     $.ajax({
         type: "GET",
@@ -311,9 +372,9 @@ $(document).ready(function() {
                 type.push(data[i].type);
                 amount.push(data[i].amount);
                 color.push(dynamicColors());
-                
+
             }
-            
+
             var databytype = document.getElementById("assetbytype");
             var bytype = new Chart(databytype, {
                 type: 'doughnut',
@@ -333,7 +394,7 @@ $(document).ready(function() {
                     legend: {
                            position: 'bottom',
                     },
-                    
+
                 }
             });
         }
@@ -362,7 +423,7 @@ $(document).ready(function() {
                 amount.push(data[i].amount);
                 color.push(dynamicColors());
             }
-            
+
             var databystatus = document.getElementById("assetbystatus");
             var bystatus = new Chart(databystatus, {
                 type: 'doughnut',
@@ -382,11 +443,11 @@ $(document).ready(function() {
                     legend: {
                            position: 'bottom',
                     },
-                    
+
                 }
             });
         }
-    }); 
+    });
 
 });
 
@@ -403,11 +464,11 @@ $.ajax({
             $(".totalcomponent").html(html.totalcomponent);
             $(".totalemployee").html(html.totalemployee);
             $(".totalmaintenance").html(html.totalmaintenance);
-        }   
-    }); 
+        }
+    });
 
 
-  
+
 
 </script>
 @endsection
