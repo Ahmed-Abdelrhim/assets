@@ -13,7 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}" type="text/css">
+    {{--    Font Awesome Version 4.7.0 --}}
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css')}}" type="text/css">
+
     <link rel="stylesheet" href="{{ asset('plugin/datatables2/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
 
@@ -35,6 +37,8 @@
     <link rel="stylesheet" href="{{ asset('izitoast/dist/css/iziToast.min.css') }}">
     <script src="{{ asset('izitoast/dist/js/iziToast.min.js') }}"></script>
 
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 
 
 </head>
@@ -327,7 +331,14 @@
                     <a href="#" data-toggle="dropdown"
                        class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                         <div class="d-sm-none d-lg-inline-block">
-                            <i class="fa fa-globe"></i>
+
+                                <i class=" fa fa-globe"> </i>
+{{--                            <i class="fa fa-globe" aria-hidden="true"></i>--}}
+
+{{--                            <i class="fa fa-language" aria-hidden="true"></i>--}}
+
+                            {{--  <span class="glyphicon glyphicon-globe"> </span>         --}}
+
                         </div>
                     </a>
                     @foreach($languages as $lang)
@@ -413,6 +424,9 @@
             });
             break;
     }
+
+
+
     @endif
 
 
@@ -423,29 +437,32 @@
 
 
 
-    (function($) {
-    "use strict";
+                (function($) {
+                "use strict";
 
-            //get app setting
-            $.ajax({
-                type: "GET",
-                url: "{{ url('settings')}}",
-                dataType: "JSON",
-                success: function(data) {
-                    $("#id").val('1');
-                    $(".company").html(data.data.company);
-                    $(".setcurrency").html(data.data.currency);
-                    $(".logoimg").attr("src", data.logo);
-                }
-            });
-            //datepicker
-            $('.setdate').datepicker({
-                autoclose: true,
-                dateFormat: "yy-mm-dd",
-                todayHighlight: true
-            });
+                        //get app setting
+                        $.ajax({
+                            type: "GET",
+                            url: "{{ url('settings')}}",
+                            dataType: "JSON",
+                            success: function(data) {
+                                $("#id").val('1');
+                                $(".company").html(data.data.company);
+                                $(".setcurrency").html(data.data.currency);
+                                $(".logoimg").attr("src", data.logo);
+                            }
+                        });
+                        //datepicker
+                        $('.setdate').datepicker({
+                            autoclose: true,
+                            dateFormat: "yy-mm-dd",
+                            todayHighlight: true
+                        });
 
-    })(jQuery);
+                })(jQuery);
+
+
+
 
 
 

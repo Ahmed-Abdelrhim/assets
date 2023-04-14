@@ -8,10 +8,17 @@
                 <h3 class=""><?php echo trans('lang.asset_list');?></h3>
             </div>
             <div class="col-md-6 text-md-right pb-md-0 pb-3">
-            <button type="button" data-toggle="modal" data-target="#add" class="btn btn-sm btn-fill btn-primary"><i class="fa fa-plus"></i> <?php echo trans('lang.add_data');?></button>
+            <button type="button" data-toggle="modal" data-target="#add" class="btn btn-sm btn-fill btn-primary">
+                <i class="fa fa-plus"></i>
+
+{{--                <?php echo trans('lang.add_data');?>--}}
+                {{__('files.add_data')}}
+
+
+            </button>
             </div>
         </div>
-       
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -55,7 +62,7 @@
                                         <th><?php echo trans('lang.action');?></th>
                                     </tr>
                                 </tfoot>
-                               
+
                             </table>
                         </div>
                     </div>
@@ -70,7 +77,7 @@
             <div class="modal-content">
                 <form action="#" id="formadd" enctype="multipart/form-data" autocomplete="off">
                     <div class="modal-header">
-                       
+
                         <h5 class="modal-title"><?php echo trans('lang.add_data');?></h5>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
@@ -81,7 +88,7 @@
                                 <label><?php echo trans('lang.name');?></label>
                                 <input name="name" type="text" id="name" class=" form-control" required placeholder="<?php echo trans('lang.name');?>"/>
                             </div>
-                            
+
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -91,16 +98,16 @@
                             <div class="form-group col-md-6">
                                 <label><?php echo trans('lang.supplier');?></label>
                                 <select name="supplierid" id="supplierid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.supplier');?></option> 
+                                    <option value=""><?php echo trans('lang.supplier');?></option>
                                 </select>
                             </div>
-                           
+
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label><?php echo trans('lang.location');?></label>
                                 <select name="locationid" id="locationid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.location');?></option> 
+                                    <option value=""><?php echo trans('lang.location');?></option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -110,7 +117,7 @@
                                 </select>
                             </div>
                         </div>
-                       
+
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label><?php echo trans('lang.serial');?></label>
@@ -119,32 +126,32 @@
                             <div class="form-group col-md-6">
                                 <label><?php echo trans('lang.assettype');?></label>
                                 <select name="typeid" id="typeid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.assettype');?></option> 
+                                    <option value=""><?php echo trans('lang.assettype');?></option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6 mb-0" >
-								<label for="cost" class="control-label"><?php echo trans('lang.cost');?></label> 
+								<label for="cost" class="control-label"><?php echo trans('lang.cost');?></label>
 								<div class="input-group mb-0">
-									<span class="input-group-addon setcurrency border-1" id="currency"></span>                                      
+									<span class="input-group-addon setcurrency border-1" id="currency"></span>
 									<input class="form-control number" required="" placeholder="<?php echo trans('lang.cost');?>" id="cost" name="cost" type="text">
 								</div>
                                 <label class="error" for="cost"></label>
 							</div>
                             <div class="form-group col-md-6 mb-0">
-                                    <label for="purchasedate" class="control-label"><?php echo trans('lang.purchasedate');?></label>     
-                                    <div class="input-group mb-0">                       
+                                    <label for="purchasedate" class="control-label"><?php echo trans('lang.purchasedate');?></label>
+                                    <div class="input-group mb-0">
 									<input class="form-control setdate" required="" placeholder="<?php echo trans('lang.purchasedate');?>" id="purchasedate" name="purchasedate" type="text">
-                                    <span class="input-group-addon border-1" id="date" ><i class="fa fa-calendar"></i></span>      
+                                    <span class="input-group-addon border-1" id="date" ><i class="fa fa-calendar"></i></span>
                                 </div>
                                 <label class="error" for="purchasedate"></label>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6 mb-0" >
-                            <label for="warranty" class="control-label"><?php echo trans('lang.warranty');?></label> 
-								<div class="input-group mb-0" >                                    
+                            <label for="warranty" class="control-label"><?php echo trans('lang.warranty');?></label>
+								<div class="input-group mb-0" >
 									<input class="form-control number" required="" placeholder="<?php echo trans('lang.warranty');?>" id="warranty" name="warranty" type="text">
                                     <span class="input-group-addon border-1" id="warrantyyear" ><?php echo trans('lang.month');?></span>
                                 </div>
@@ -163,18 +170,18 @@
                             </select>
                             </div>
                         </div>
-                       
+
                         <div class="form-group">
                             <label><?php echo trans('lang.description');?></label>
                             <textarea class="form-control" name="description" id="description" placeholder="<?php echo trans('lang.description');?>"></textarea>
                         </div>
-                       
+
                         <div class="form-group">
                             <label><?php echo trans('lang.picture');?></label>
                             <input name="picture" type="file" id="picture" class=" form-control"  placeholder="<?php echo trans('lang.picture');?>"/>
                         </div>
-                        
-                       
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary"
@@ -194,7 +201,7 @@
             <div class="modal-content">
                 <form action="#" id="formedit" enctype="multipart/form-data">
                     <div class="modal-header">
-                       
+
                         <h5 class="modal-title"><?php echo trans('lang.edit_data');?></h5>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
@@ -205,7 +212,7 @@
                                 <label><?php echo trans('lang.name');?></label>
                                 <input name="name" type="text" id="editname" class=" form-control" required placeholder="<?php echo trans('lang.name');?>"/>
                             </div>
-                           
+
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -215,17 +222,17 @@
                             <div class="form-group col-md-6">
                                 <label><?php echo trans('lang.supplier');?></label>
                                 <select name="supplierid" id="editsupplierid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.supplier');?></option> 
+                                    <option value=""><?php echo trans('lang.supplier');?></option>
                                 </select>
                             </div>
-                           
+
                         </div>
                         <div class="form-row">
-                            
+
                             <div class="form-group col-md-6">
                                 <label><?php echo trans('lang.location');?></label>
                                 <select name="locationid" id="editlocationid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.location');?></option> 
+                                    <option value=""><?php echo trans('lang.location');?></option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -235,7 +242,7 @@
                                 </select>
                             </div>
                         </div>
-                       
+
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label><?php echo trans('lang.serial');?></label>
@@ -244,32 +251,32 @@
                             <div class="form-group col-md-6">
                                 <label><?php echo trans('lang.assettype');?></label>
                                 <select name="typeid" id="edittypeid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.assettype');?></option> 
+                                    <option value=""><?php echo trans('lang.assettype');?></option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6 mb-0" >
-								<label for="cost" class="control-label"><?php echo trans('lang.cost');?></label> 
+								<label for="cost" class="control-label"><?php echo trans('lang.cost');?></label>
 								<div class="input-group mb-0" >
-									<span class="input-group-addon setcurrency border-1" id="editcurrency" ></span>                                      
+									<span class="input-group-addon setcurrency border-1" id="editcurrency" ></span>
 									<input class="form-control number" required="" placeholder="<?php echo trans('lang.cost');?>" id="editcost" name="cost" type="text">
 								</div>
                                 <label class="error" for="cost"></label>
 							</div>
                             <div class="form-group col-md-6 mb-0" >
-                                    <label for="purchasedate" class="control-label"><?php echo trans('lang.purchasedate');?></label>     
-                                    <div class="input-group mb-0" >                       
+                                    <label for="purchasedate" class="control-label"><?php echo trans('lang.purchasedate');?></label>
+                                    <div class="input-group mb-0" >
 									<input class="form-control setdate" required="" placeholder="<?php echo trans('lang.purchasedate');?>" id="editpurchasedate" name="purchasedate" type="text">
-                                    <span class="input-group-addon border-1" id="editdate" ><i class="fa fa-calendar"></i></span>      
+                                    <span class="input-group-addon border-1" id="editdate" ><i class="fa fa-calendar"></i></span>
                                 </div>
                                 <label class="error" for="purchasedate"></label>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6 mb-0" >
-                            <label for="warranty" class="control-label"><?php echo trans('lang.warranty');?></label> 
-								<div class="input-group mb-0" >                                    
+                            <label for="warranty" class="control-label"><?php echo trans('lang.warranty');?></label>
+								<div class="input-group mb-0" >
 									<input class="form-control number" required="" placeholder="<?php echo trans('lang.warranty');?>" id="editwarranty" name="warranty" type="text">
                                     <span class="input-group-addon border-1" id="editwarrantyyear" ><?php echo trans('lang.month');?></span>
                                 </div>
@@ -288,12 +295,12 @@
                             </select>
                             </div>
                         </div>
-                       
+
                         <div class="form-group">
                             <label><?php echo trans('lang.description');?></label>
                             <textarea class="form-control" name="description" id="editdescription" placeholder="<?php echo trans('lang.description');?>"></textarea>
                         </div>
-                       
+
                         <div class="form-group">
                             <label><?php echo trans('lang.picture');?></label>
                             <input name="picture" type="file" id="editpicture" class=" form-control"  placeholder="<?php echo trans('lang.picture');?>"/>
@@ -320,12 +327,12 @@
             <div class="modal-content">
                 <form action="#" id="formcheckout" enctype="multipart/form-data" autocomplete="off">
                     <div class="modal-header">
-                       
+
                         <h5 class="modal-title"><?php echo trans('lang.checkout');?></h5>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        
+
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label><?php echo trans('lang.assettag');?></label>
@@ -335,23 +342,23 @@
                                 <label><?php echo trans('lang.asset');?></label>
                                 <input name="asset" type="text" readonly id="checkoutname" class=" form-control" required placeholder="<?php echo trans('lang.asset');?>"/>
                             </div>
-                            
+
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label><?php echo trans('lang.checkoutto');?></label>
                                 <select name="employeeid" id="checkoutemployeeid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.employee');?></option> 
+                                    <option value=""><?php echo trans('lang.employee');?></option>
                                 </select>
                             </div>
                         </div>
-                       
+
                         <div class="form-row">
                             <div class="form-group col-md-12 mb-0" >
-                                    <label for="checkoutdate" class="control-label"><?php echo trans('lang.checkoutdate');?></label>     
-                                    <div class="input-group mb-0" >                       
+                                    <label for="checkoutdate" class="control-label"><?php echo trans('lang.checkoutdate');?></label>
+                                    <div class="input-group mb-0" >
 									<input class="form-control setdate" required="" placeholder="<?php echo trans('lang.checkoutdate');?>" id="checkoutdate" name="checkoutdate" type="text">
-                                    <span class="input-group-addon border-1" id="date" ><i class="fa fa-calendar"></i></span>      
+                                    <span class="input-group-addon border-1" id="date" ><i class="fa fa-calendar"></i></span>
                                 </div>
                                 <label class="error" for="checkoutdate"></label>
                             </div>
@@ -381,7 +388,7 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        
+
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label><?php echo trans('lang.assettag');?></label>
@@ -391,15 +398,15 @@
                                 <label><?php echo trans('lang.asset');?></label>
                                 <input name="asset" type="text" readonly id="checkinname" class=" form-control" required placeholder="<?php echo trans('lang.asset');?>"/>
                             </div>
-                            
+
                         </div>
-                       
+
                         <div class="form-row">
                             <div class="form-group col-md-12 mb-0" >
-                                    <label for="checkindate" class="control-label"><?php echo trans('lang.checkindate');?></label>     
-                                    <div class="input-group mb-0" >                       
+                                    <label for="checkindate" class="control-label"><?php echo trans('lang.checkindate');?></label>
+                                    <div class="input-group mb-0" >
                                     <input class="form-control setdate" required="" placeholder="<?php echo trans('lang.checkindate');?>" id="checkindate" name="checkindate" type="text">
-                                    <span class="input-group-addon border-1" id="date" ><i class="fa fa-calendar"></i></span>      
+                                    <span class="input-group-addon border-1" id="date" ><i class="fa fa-calendar"></i></span>
                                 </div>
                                 <label class="error" for="checkindate"></label>
                             </div>
@@ -432,13 +439,13 @@
                 <div class="modal-body">
                     <p><?php echo trans('lang.delete_confirm');?></p>
                     <input type="hidden" value="" name="id" id="iddelete"/>
-            
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" id="delete"><?php echo trans('lang.delete');?></button>
                     <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo trans('lang.close');?></button>
                 </div>
-            </form>   
+            </form>
         </div>
         </div>
     </div>
@@ -479,7 +486,7 @@
                 searchable: false,
                 visible: false
             },
-           
+
             {
              data: 'description',
                 orderable: false,
@@ -562,13 +569,13 @@ $.ajax({
                 var name = decodeURIComponent(record.name);
                 $("#supplierid").append($("<option></option>")
                     .attr("value",id)
-                    .text(name)); 
+                    .text(name));
                 $("#editsupplierid").append($("<option></option>")
                     .attr("value",id)
-                    .text(name));     
+                    .text(name));
             });
-		}   
-    }); 
+		}
+    });
 
 //get all employee
 $.ajax({
@@ -582,13 +589,13 @@ $.ajax({
                 var name = decodeURIComponent(record.fullname);
                 $("#checkinemployeeid").append($("<option></option>")
                     .attr("value",id)
-                    .text(name)); 
+                    .text(name));
                 $("#checkoutemployeeid").append($("<option></option>")
                     .attr("value",id)
-                    .text(name)); 
+                    .text(name));
             });
-		}   
-    }); 
+		}
+    });
 
 
 //get all asset type
@@ -603,15 +610,15 @@ $.ajax({
                 var name = decodeURIComponent(record.name);
                 $("#typeid").append($("<option></option>")
                     .attr("value",id)
-                    .text(name)); 
+                    .text(name));
                 $("#edittypeid").append($("<option></option>")
                     .attr("value",id)
-                    .text(name));     
+                    .text(name));
             });
-		}   
-    }); 
+		}
+    });
 
-//get all brand 
+//get all brand
 $.ajax({
         type: "GET",
 		url: "{{ url('listbrand')}}",
@@ -623,15 +630,15 @@ $.ajax({
                 var name = decodeURIComponent(record.name);
                 $("#brandid").append($("<option></option>")
                     .attr("value",id)
-                    .text(name)); 
+                    .text(name));
                 $("#editbrandid").append($("<option></option>")
                     .attr("value",id)
-                    .text(name));     
+                    .text(name));
             });
-		}   
-    }); 
+		}
+    });
 
-//get all location 
+//get all location
 $.ajax({
         type: "GET",
 		url: "{{ url('listlocation')}}",
@@ -643,13 +650,13 @@ $.ajax({
                 var name = decodeURIComponent(record.name);
                 $("#locationid").append($("<option></option>")
                     .attr("value",id)
-                    .text(name)); 
+                    .text(name));
                 $("#editlocationid").append($("<option></option>")
                     .attr("value",id)
-                    .text(name));     
+                    .text(name));
             });
-		}   
-    });     
+		}
+    });
 
 //generate product code
 $.ajax({
@@ -659,8 +666,8 @@ $.ajax({
 		success: function(html) {
             var objs = html.message;
             $("#assettag").val(html.message);
-		}   
-    }); 
+		}
+    });
 
 //add data
 $("#formadd").validate({
@@ -687,7 +694,7 @@ $("#formadd").validate({
         var status              = $("#status").val();
         var description         = $("#description").val();
 		var picture             = $('#picture')[0].files[0];
-		
+
         form.append('name', name);
         form.append('locationid', locationid);
 		form.append('supplierid', supplierid);
@@ -702,7 +709,7 @@ $("#formadd").validate({
         form.append('status', status);
         form.append('description', description);
         form.append('picture', picture);
-        
+
         $.ajax({
 			type: "POST",
             url: "{{ url('saveasset')}}",
@@ -750,8 +757,8 @@ $("#formedit").validate({
         var status              = $("#editstatus").val();
         var description         = $("#editdescription").val();
 		var picture             = $('#editpicture')[0].files[0];
-        
-        
+
+
         form.append('id', id);
         form.append('name', name);
         form.append('locationid', locationid);
@@ -833,7 +840,7 @@ $('#edit').on('show.bs.modal', function(e) {
             $("#editwarranty").val(data.message.warranty);
             $("#editstatus").val(data.message.status);
             $("#editdescription").val(data.message.assetdescription);
-		}   
+		}
 	});
 });
 
@@ -888,7 +895,7 @@ $('#checkout').on('show.bs.modal', function(e) {
 			$("#assetid").val(id);
             $("#checkoutname").val(data.message.name);
             $("#checkoutassettag").val(data.message.assettag);
-		}   
+		}
 	});
 });
 
@@ -905,7 +912,7 @@ $('#checkin').on('show.bs.modal', function(e) {
             $("#checkinassetid").val(id);
             $("#checkinname").val(data.message.name);
             $("#checkinassettag").val(data.message.assettag);
-        }   
+        }
     });
 });
 

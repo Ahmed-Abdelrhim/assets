@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,44 +10,46 @@
 </head>
 
 <style type="text/css">
-	table{
-		font-family: Arial, Serif;
-	}
+    table {
+        font-family: Arial, Serif;
+    }
 
-	p{
-		margin: 0;
-	}
-	.assettag, .assetserial, .assettype2{
-		font-size: 12px;
-	}
-	.assetname{
-		font-size: 16px;
-		font-weight: bold;
-		margin-bottom: 5px;
-	}
-	.padding-right{
-		padding-right: 10px;
-	}
+    p {
+        margin: 0;
+    }
+
+    .assettag, .assetserial, .assettype2 {
+        font-size: 12px;
+    }
+
+    .assetname {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .padding-right {
+        padding-right: 10px;
+    }
 </style>
 <body>
 
 
 <table width="200" align="center" border="1" cellspacing="0" cellpadding="0">
-<input type="hidden" value="{{ $id }}" name="id" id="id" />
+    <input type="hidden" value="{{ $id }}" name="id" id="id"/>
 
-<tr>
-	<td align="left" class="padding-right" >
-     
-     <p class="assetname"></p> 
-     <p class="assettag"></p>      
-     <p class="assetserial"></p>
-     <p class="assettype2"></p>                                 
-	</td>
-	<td width="70" align="right">
-	<div class="assetbarcode"></div>       
-	</td>
-</tr>
+    <tr>
+        <td align="left" class="padding-right">
 
+            <p class="assetname"></p>
+            <p class="assettag"></p>
+            <p class="assetserial"></p>
+            <p class="assettype2"></p>
+        </td>
+        <td width="70" align="right">
+            <div class="assetbarcode"></div>
+        </td>
+    </tr>
 
 
 </table>
@@ -86,6 +87,7 @@
 	        }
 	    });
 	})(jQuery);
+
 
 </script>
 </body>
