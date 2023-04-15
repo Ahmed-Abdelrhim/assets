@@ -8,10 +8,17 @@
                 <h3 class=""><?php echo trans('lang.supplier_list');?></h3>
             </div>
             <div class="col-md-6 text-md-right pb-md-0 pb-3">
-            <button type="button" data-toggle="modal" data-target="#add" class="btn btn-sm btn-fill btn-primary"><i class="fa fa-plus"></i> <?php echo trans('lang.add_data');?></button>
+{{--            <button type="button" data-toggle="modal" data-target="#add" class="btn btn-sm btn-fill btn-primary"><i class="fa fa-plus"></i> <?php echo trans('lang.add_data');?></button>--}}
+
+                <a href="{{route('supplier.create')}}" class="btn btn-primary">
+                    <i class="fa fa-plus"></i>
+                    {{__('files.add_data')}}
+                </a>
+
+
             </div>
         </div>
-       
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -63,7 +70,7 @@
             <div class="modal-content">
                 <form action="#" id="formadd" enctype="multipart/form-data">
                     <div class="modal-header">
-                       
+
                         <h5 class="modal-title"><?php echo trans('lang.add_data');?></h5>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
@@ -77,12 +84,12 @@
                             <label><?php echo trans('lang.email');?></label>
                             <input name="email" type="email" id="email" class=" form-control" required placeholder="<?php echo trans('lang.email');?>"/>
                         </div>
-                       
+
                         <div class="form-group">
                             <label><?php echo trans('lang.phone');?></label>
                             <input name="phone" type="text" id="phone" class=" form-control" required placeholder="<?php echo trans('lang.phone');?>"/>
                         </div>
-                      
+
                         <div class="form-group">
                             <label><?php echo trans('lang.city');?></label>
                             <input name="city" type="text" id="city" class=" form-control" required placeholder="<?php echo trans('lang.city');?>"/>
@@ -345,8 +352,8 @@
                             <label><?php echo trans('lang.address');?></label>
                             <textarea name="address" id="address" class="form-control" placeholder="<?php echo trans('lang.address');?>"></textarea>
                         </div>
-                        
-                       
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary"
@@ -366,7 +373,7 @@
             <div class="modal-content">
                 <form action="#" id="formedit" enctype="multipart/form-data">
                     <div class="modal-header">
-                       
+
                         <h5 class="modal-title"><?php echo trans('lang.edit_data');?></h5>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
@@ -380,12 +387,12 @@
                             <label><?php echo trans('lang.email');?></label>
                             <input name="email" type="email" id="editemail" class=" form-control" required placeholder="<?php echo trans('lang.email');?>"/>
                         </div>
-                       
+
                         <div class="form-group">
                             <label><?php echo trans('lang.phone');?></label>
                             <input name="phone" type="text" id="editphone" class=" form-control" required placeholder="<?php echo trans('lang.phone');?>"/>
                         </div>
-                      
+
                         <div class="form-group">
                             <label><?php echo trans('lang.city');?></label>
                             <input name="city" type="text" id="editcity" class=" form-control" required placeholder="<?php echo trans('lang.city');?>"/>
@@ -674,13 +681,13 @@
                 <div class="modal-body">
                     <p><?php echo trans('lang.delete_confirm');?></p>
                     <input type="hidden" value="" name="id" id="iddelete"/>
-            
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" id="delete"><?php echo trans('lang.delete');?></button>
                     <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo trans('lang.close');?></button>
                 </div>
-            </form>   
+            </form>
         </div>
         </div>
     </div>
@@ -689,7 +696,7 @@
 
 <script>
 (function($) {
-"use strict";  
+"use strict";
     $('#data').DataTable({
         ajax: "{{ url('supplier')}}",
         columns: [{
@@ -698,11 +705,11 @@
                 searchable: false,
                 visible: false
             },
-            
+
             {
                 data: 'name'
             },
-           
+
             {
                 data: 'email'
             },
@@ -731,7 +738,7 @@
                 searchable: false
             }
         ],
-      
+
         buttons: [{
                 extend: 'copy',
                 text: 'Copy <i class="fa fa-files-o"></i>',
@@ -789,13 +796,13 @@ $.ajax({
                 var name = decodeURIComponent(record.name);
                 $("#department").append($("<option></option>")
                     .attr("value",id)
-                    .text(name)); 
+                    .text(name));
                 $("#editdepartment").append($("<option></option>")
                     .attr("value",id)
-                    .text(name));     
+                    .text(name));
             });
-		}   
-    });  
+		}
+    });
 
 //add data
 $("#formadd").validate({
@@ -803,7 +810,7 @@ $("#formadd").validate({
       phone: {
         required: true,
         digits: true
-      },    
+      },
       zip: {
         required: true,
         digits: true,
@@ -894,7 +901,7 @@ $('#edit').on('show.bs.modal', function(e) {
             $("#editcity").val(data.message.city);
             $("#editcountry").val(data.message.country);
             $("#editaddress").val(data.message.address);
-		}   
+		}
 	});
 });
 

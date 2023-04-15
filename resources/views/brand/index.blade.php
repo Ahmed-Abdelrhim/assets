@@ -8,10 +8,16 @@
                 <h3 class=""><?php echo trans('lang.brand_list');?></h3>
             </div>
             <div class="col-md-6 text-md-right pb-md-0 pb-3">
-            <button type="button" data-toggle="modal" data-target="#add" class="btn btn-sm btn-fill btn-primary"><i class="fa fa-plus"></i> <?php echo trans('lang.add_data');?></button>
+{{--            <button type="button" data-toggle="modal" data-target="#add" class="btn btn-sm btn-fill btn-primary"><i class="fa fa-plus"></i> <?php echo trans('lang.add_data');?></button>--}}
+
+                <a href="{{route('brand.create')}}" class="btn btn-primary">
+                    <i class="fa fa-plus"></i>
+                    {{__('files.add_data')}}
+                </a>
+
             </div>
         </div>
-       
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -53,7 +59,7 @@
             <div class="modal-content">
                 <form action="#" id="formadd">
                     <div class="modal-header">
-                       
+
                         <h5 class="modal-title"><?php echo trans('lang.add_data');?></h5>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
@@ -62,7 +68,7 @@
                             <label><?php echo trans('lang.name');?></label>
                             <input name="name" type="text" id="name" class=" form-control" required placeholder="<?php echo trans('lang.name');?>"/>
                         </div>
-                        
+
                         <div class="form-group">
                             <label><?php echo trans('lang.description');?></label>
                             <textarea class="form-control" name="description" id="description"
@@ -87,7 +93,7 @@
             <div class="modal-content">
                 <form action="#" id="formedit">
                     <div class="modal-header">
-                       
+
                         <h5 class="modal-title"><?php echo trans('lang.edit_data');?></h5>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
@@ -96,7 +102,7 @@
                             <label><?php echo trans('lang.name');?></label>
                             <input name="name" type="text" id="editname" class=" form-control" required placeholder="<?php echo trans('lang.name');?>"/>
                         </div>
-                       
+
                         <div class="form-group">
                             <label><?php echo trans('lang.description');?></label>
                             <textarea class="form-control" name="description" id="editdescription"
@@ -128,13 +134,13 @@
                 <div class="modal-body">
                     <p><?php echo trans('lang.delete_confirm');?></p>
                     <input type="hidden" value="" name="id" id="iddelete"/>
-            
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" id="delete"><?php echo trans('lang.delete');?></button>
                     <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo trans('lang.close');?></button>
                 </div>
-            </form>   
+            </form>
         </div>
         </div>
     </div>
@@ -143,7 +149,7 @@
 
 <script>
 (function($) {
-"use strict";  
+"use strict";
 
     $('#data').DataTable({
         ajax: "{{ url('brand')}}",
@@ -153,7 +159,7 @@
                 searchable: false,
                 visible: false
             },
-           
+
             {
                 data: 'name'
             },
@@ -166,7 +172,7 @@
                 searchable: false
             }
         ],
-       
+
         buttons: [{
                 extend: 'copy',
                 text: 'Copy <i class="fa fa-files-o"></i>',
@@ -280,7 +286,7 @@ $('#edit').on('show.bs.modal', function(e) {
             $("#editname").val(data.message.name);
             $("#editstatus").val(data.message.status);
 			$("#editdescription").val(data.message.description);
-		}   
+		}
 	});
 });
 

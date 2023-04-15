@@ -1,458 +1,522 @@
 @extends('main')
 @section('content')
 
-<section class="">
-    <div class="content p-4">
-        <div class="row pt-3">
-            <div class="col-md-6">
-                <h3 class=""><?php echo trans('lang.asset_list');?></h3>
+    <section class="">
+        <div class="content p-4">
+            <div class="row pt-3">
+                <div class="col-md-6">
+                    <h3 class=""><?php echo trans('lang.asset_list'); ?></h3>
+                </div>
+                <div class="col-md-6 text-md-right pb-md-0 pb-3">
+
+
+                {{--                    <button type="button" data-toggle="modal" data-target="#add"--}}
+                {{--                            class="btn btn-sm btn-fill btn-primary">--}}
+                {{--                        <i class="fa fa-plus"></i>--}}
+                {{--                        --}}{{--                <?php echo trans('lang.add_data');?>    --}}
+                {{--                        {{__('files.add_data')}}--}}
+                {{--                    </button>--}}
+
+
+                    <a href="{{route('asset.create')}}"
+                            class="btn btn-sm btn-fill btn-primary">
+                        <i class="fa fa-plus"></i>
+                        {{--                <?php echo trans('lang.add_data');?>    --}}
+                        {{__('files.add_data')}}
+                    </a>
+
+
+
+                </div>
             </div>
-            <div class="col-md-6 text-md-right pb-md-0 pb-3">
-            <button type="button" data-toggle="modal" data-target="#add" class="btn btn-sm btn-fill btn-primary">
-                <i class="fa fa-plus"></i>
 
-{{--                <?php echo trans('lang.add_data');?>--}}
-                {{__('files.add_data')}}
-
-
-            </button>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body ">
-                    <div id="checkoutsuccess" class="display-none alert alert-success"><?php echo trans('lang.data_checkout_succeess');?></div>
-                    <div id="checkinsuccess"  class="display-none alert alert-success"><?php echo trans('lang.data_checkin_succeess');?></div>
-                    <div id="messagesuccess"  class="display-none alert alert-success"><?php echo trans('lang.data_added');?></div>
-					<div id="messagedelete"  class="display-none alert alert-success"><?php echo trans('lang.data_deleted');?></div>
-					<div id="messageupdate"  class="display-none alert alert-success"><?php echo trans('lang.data_updated');?></div>
-                        <div class="table-responsive">
-                            <table id="data" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                <thead>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body ">
+                            <div id="checkoutsuccess"
+                                 class="display-none alert alert-success"><?php echo trans('lang.data_checkout_succeess'); ?></div>
+                            <div id="checkinsuccess"
+                                 class="display-none alert alert-success"><?php echo trans('lang.data_checkin_succeess'); ?></div>
+                            <div id="messagesuccess"
+                                 class="display-none alert alert-success"><?php echo trans('lang.data_added'); ?></div>
+                            <div id="messagedelete"
+                                 class="display-none alert alert-success"><?php echo trans('lang.data_deleted'); ?></div>
+                            <div id="messageupdate"
+                                 class="display-none alert alert-success"><?php echo trans('lang.data_updated'); ?></div>
+                            <div class="table-responsive">
+                                <table id="data" class="table table-striped table-bordered" cellspacing="0"
+                                       width="100%">
+                                    <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th><?php echo trans('lang.picture');?></th>
-                                        <th><?php echo trans('lang.assettag');?></th>
-                                        <th><?php echo trans('lang.serial');?></th>
-                                        <th><?php echo trans('lang.purchasedate');?></th>
-                                        <th><?php echo trans('lang.cost');?></th>
-                                        <th><?php echo trans('lang.description');?></th>
-                                        <th><?php echo trans('lang.name');?></th>
-                                        <th><?php echo trans('lang.type');?></th>
-                                        <th><?php echo trans('lang.brand');?></th>
-                                        <th><?php echo trans('lang.location');?></th>
-                                        <th><?php echo trans('lang.action');?></th>
+                                        <th><?php echo trans('lang.picture'); ?></th>
+                                        <th><?php echo trans('lang.assettag'); ?></th>
+                                        <th><?php echo trans('lang.serial'); ?></th>
+                                        <th><?php echo trans('lang.purchasedate'); ?></th>
+                                        <th><?php echo trans('lang.cost'); ?></th>
+                                        <th><?php echo trans('lang.description'); ?></th>
+                                        <th><?php echo trans('lang.name'); ?></th>
+                                        <th><?php echo trans('lang.type'); ?></th>
+                                        <th><?php echo trans('lang.brand'); ?></th>
+                                        <th><?php echo trans('lang.location'); ?></th>
+                                        <th><?php echo trans('lang.action'); ?></th>
                                     </tr>
-                                </thead>
-                                <tfoot>
+                                    </thead>
+                                    <tfoot>
                                     <tr>
                                         <th>ID</th>
-                                        <th><?php echo trans('lang.picture');?></th>
-                                        <th><?php echo trans('lang.assettag');?></th>
-                                        <th><?php echo trans('lang.serial');?></th>
-                                        <th><?php echo trans('lang.purchasedate');?></th>
-                                        <th><?php echo trans('lang.cost');?></th>
-                                        <th><?php echo trans('lang.description');?></th>
-                                        <th><?php echo trans('lang.name');?></th>
-                                        <th><?php echo trans('lang.type');?></th>
-                                        <th><?php echo trans('lang.brand');?></th>
-                                        <th><?php echo trans('lang.location');?></th>
-                                        <th><?php echo trans('lang.action');?></th>
+                                        <th><?php echo trans('lang.picture'); ?></th>
+                                        <th><?php echo trans('lang.assettag'); ?></th>
+                                        <th><?php echo trans('lang.serial'); ?></th>
+                                        <th><?php echo trans('lang.purchasedate'); ?></th>
+                                        <th><?php echo trans('lang.cost'); ?></th>
+                                        <th><?php echo trans('lang.description'); ?></th>
+                                        <th><?php echo trans('lang.name'); ?></th>
+                                        <th><?php echo trans('lang.type'); ?></th>
+                                        <th><?php echo trans('lang.brand'); ?></th>
+                                        <th><?php echo trans('lang.location'); ?></th>
+                                        <th><?php echo trans('lang.action'); ?></th>
                                     </tr>
-                                </tfoot>
+                                    </tfoot>
 
-                            </table>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!--add new data -->
-    <div id="add" class="modal fade" role="dialog" >
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <form action="#" id="formadd" enctype="multipart/form-data" autocomplete="off">
-                    <div class="modal-header">
+        <!--add new data -->
+        <div  class="modal fade" id="add" tainbox="-1"  role="dialog" >
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <form action="#" id="formadd" enctype="multipart/form-data" autocomplete="off">
+                        <div class="modal-header">
 
-                        <h5 class="modal-title"><?php echo trans('lang.add_data');?></h5>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                    <div  class="display-none messageexist alert alert-success"><?php echo trans('lang.tag_exist');?></div>
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label><?php echo trans('lang.name');?></label>
-                                <input name="name" type="text" id="name" class=" form-control" required placeholder="<?php echo trans('lang.name');?>"/>
-                            </div>
-
+                            <h5 class="modal-title"><?php echo trans('lang.add_data'); ?></h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label><?php echo trans('lang.assettag');?></label>
-                                <input name="assettag" type="text" id="assettag" class=" form-control" required placeholder="<?php echo trans('lang.assettag');?>"/>
+                        <div class="modal-body">
+                            <div
+                                class="display-none messageexist alert alert-success"><?php echo trans('lang.tag_exist'); ?></div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label><?php echo trans('lang.name'); ?></label>
+                                    <input name="name" type="text" id="name" class=" form-control" required
+                                           placeholder="<?php echo trans('lang.name');?>"/>
+                                </div>
+
                             </div>
-                            <div class="form-group col-md-6">
-                                <label><?php echo trans('lang.supplier');?></label>
-                                <select name="supplierid" id="supplierid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.supplier');?></option>
-                                </select>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label><?php echo trans('lang.assettag'); ?></label>
+                                    <input name="assettag" type="text" id="assettag" class=" form-control" required
+                                           placeholder="<?php echo trans('lang.assettag');?>"/>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label><?php echo trans('lang.supplier'); ?></label>
+                                    <select name="supplierid" id="supplierid" required class="form-control">
+                                        <option value=""><?php echo trans('lang.supplier'); ?></option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label><?php echo trans('lang.location'); ?></label>
+                                    <select name="locationid" id="locationid" required class="form-control">
+                                        <option value=""><?php echo trans('lang.location'); ?></option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label><?php echo trans('lang.brand'); ?></label>
+                                    <select name="brandid" id="brandid" required class="form-control">
+                                        <option value=""><?php echo trans('lang.brand'); ?></option>
+                                    </select>
+                                </div>
                             </div>
 
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label><?php echo trans('lang.location');?></label>
-                                <select name="locationid" id="locationid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.location');?></option>
-                                </select>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label><?php echo trans('lang.serial'); ?></label>
+                                    <input name="serial" type="text" id="serial" class="form-control " required
+                                           placeholder="<?php echo trans('lang.serial');?>"/>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label><?php echo trans('lang.assettype'); ?></label>
+                                    <select name="typeid" id="typeid" required class="form-control">
+                                        <option value=""><?php echo trans('lang.assettype'); ?></option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-group col-md-6">
-                            <label><?php echo trans('lang.brand');?></label>
-                                <select name="brandid" id="brandid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.brand');?></option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label><?php echo trans('lang.serial');?></label>
-                                <input name="serial" type="text" id="serial" class="form-control " required placeholder="<?php echo trans('lang.serial');?>"/>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label><?php echo trans('lang.assettype');?></label>
-                                <select name="typeid" id="typeid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.assettype');?></option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6 mb-0" >
-								<label for="cost" class="control-label"><?php echo trans('lang.cost');?></label>
-								<div class="input-group mb-0">
-									<span class="input-group-addon setcurrency border-1" id="currency"></span>
-									<input class="form-control number" required="" placeholder="<?php echo trans('lang.cost');?>" id="cost" name="cost" type="text">
-								</div>
-                                <label class="error" for="cost"></label>
-							</div>
-                            <div class="form-group col-md-6 mb-0">
-                                    <label for="purchasedate" class="control-label"><?php echo trans('lang.purchasedate');?></label>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 mb-0">
+                                    <label for="cost" class="control-label"><?php echo trans('lang.cost'); ?></label>
                                     <div class="input-group mb-0">
-									<input class="form-control setdate" required="" placeholder="<?php echo trans('lang.purchasedate');?>" id="purchasedate" name="purchasedate" type="text">
-                                    <span class="input-group-addon border-1" id="date" ><i class="fa fa-calendar"></i></span>
+                                        <span class="input-group-addon setcurrency border-1" id="currency"></span>
+                                        <input class="form-control number" required=""
+                                               placeholder="<?php echo trans('lang.cost');?>" id="cost" name="cost"
+                                               type="text">
+                                    </div>
+                                    <label class="error" for="cost"></label>
                                 </div>
-                                <label class="error" for="purchasedate"></label>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6 mb-0" >
-                            <label for="warranty" class="control-label"><?php echo trans('lang.warranty');?></label>
-								<div class="input-group mb-0" >
-									<input class="form-control number" required="" placeholder="<?php echo trans('lang.warranty');?>" id="warranty" name="warranty" type="text">
-                                    <span class="input-group-addon border-1" id="warrantyyear" ><?php echo trans('lang.month');?></span>
+                                <div class="form-group col-md-6 mb-0">
+                                    <label for="purchasedate"
+                                           class="control-label"><?php echo trans('lang.purchasedate'); ?></label>
+                                    <div class="input-group mb-0">
+                                        <input class="form-control setdate" required=""
+                                               placeholder="<?php echo trans('lang.purchasedate');?>" id="purchasedate"
+                                               name="purchasedate" type="text">
+                                        <span class="input-group-addon border-1" id="date"><i
+                                                class="fa fa-calendar"></i></span>
+                                    </div>
+                                    <label class="error" for="purchasedate"></label>
                                 </div>
-                                <label class="error" for="warranty"></label>
                             </div>
-                            <div class="form-group col-md-6 mb-0">
-                            <label><?php echo trans('lang.status');?></label>
-                            <select name="status" id="status" required class="form-control">
-                                <option value=""><?php echo trans('lang.status');?></option>
-                                <option value="1"><?php echo trans('lang.readytodeploy');?></option>
-                                <option value="2"><?php echo trans('lang.pending');?></option>
-                                <option value="3"><?php echo trans('lang.archived');?></option>
-                                <option value="4"><?php echo trans('lang.broken');?></option>
-                                <option value="5"><?php echo trans('lang.lost');?></option>
-                                <option value="6"><?php echo trans('lang.outofrepair');?></option>
-                            </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label><?php echo trans('lang.description');?></label>
-                            <textarea class="form-control" name="description" id="description" placeholder="<?php echo trans('lang.description');?>"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label><?php echo trans('lang.picture');?></label>
-                            <input name="picture" type="file" id="picture" class=" form-control"  placeholder="<?php echo trans('lang.picture');?>"/>
-                        </div>
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary"
-                            id="save"><?php echo trans('lang.save');?></button>
-                        <button type="button" class="btn btn-default"
-                            data-dismiss="modal"><?php echo trans('lang.close');?></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--end add data-->
-
-    <!--edit new data -->
-    <div id="edit" class="modal fade" role="dialog" >
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <form action="#" id="formedit" enctype="multipart/form-data">
-                    <div class="modal-header">
-
-                        <h5 class="modal-title"><?php echo trans('lang.edit_data');?></h5>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                    <div  class="messageexist alert alert-success display-none"><?php echo trans('lang.tag_exist');?></div>
-                    <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label><?php echo trans('lang.name');?></label>
-                                <input name="name" type="text" id="editname" class=" form-control" required placeholder="<?php echo trans('lang.name');?>"/>
-                            </div>
-
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label><?php echo trans('lang.assettag');?></label>
-                                <input name="assettag" type="text" id="editassettag" class=" form-control" required placeholder="<?php echo trans('lang.assettag');?>"/>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label><?php echo trans('lang.supplier');?></label>
-                                <select name="supplierid" id="editsupplierid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.supplier');?></option>
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="form-row">
-
-                            <div class="form-group col-md-6">
-                                <label><?php echo trans('lang.location');?></label>
-                                <select name="locationid" id="editlocationid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.location');?></option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label><?php echo trans('lang.brand');?></label>
-                                <select name="brandid" id="editbrandid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.brand');?></option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label><?php echo trans('lang.serial');?></label>
-                                <input name="serial" type="text" id="editserial" class="form-control " required placeholder="<?php echo trans('lang.serial');?>"/>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label><?php echo trans('lang.assettype');?></label>
-                                <select name="typeid" id="edittypeid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.assettype');?></option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6 mb-0" >
-								<label for="cost" class="control-label"><?php echo trans('lang.cost');?></label>
-								<div class="input-group mb-0" >
-									<span class="input-group-addon setcurrency border-1" id="editcurrency" ></span>
-									<input class="form-control number" required="" placeholder="<?php echo trans('lang.cost');?>" id="editcost" name="cost" type="text">
-								</div>
-                                <label class="error" for="cost"></label>
-							</div>
-                            <div class="form-group col-md-6 mb-0" >
-                                    <label for="purchasedate" class="control-label"><?php echo trans('lang.purchasedate');?></label>
-                                    <div class="input-group mb-0" >
-									<input class="form-control setdate" required="" placeholder="<?php echo trans('lang.purchasedate');?>" id="editpurchasedate" name="purchasedate" type="text">
-                                    <span class="input-group-addon border-1" id="editdate" ><i class="fa fa-calendar"></i></span>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 mb-0">
+                                    <label for="warranty"
+                                           class="control-label"><?php echo trans('lang.warranty'); ?></label>
+                                    <div class="input-group mb-0">
+                                        <input class="form-control number" required=""
+                                               placeholder="<?php echo trans('lang.warranty');?>" id="warranty"
+                                               name="warranty" type="text">
+                                        <span class="input-group-addon border-1"
+                                              id="warrantyyear"><?php echo trans('lang.month'); ?></span>
+                                    </div>
+                                    <label class="error" for="warranty"></label>
                                 </div>
-                                <label class="error" for="purchasedate"></label>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6 mb-0" >
-                            <label for="warranty" class="control-label"><?php echo trans('lang.warranty');?></label>
-								<div class="input-group mb-0" >
-									<input class="form-control number" required="" placeholder="<?php echo trans('lang.warranty');?>" id="editwarranty" name="warranty" type="text">
-                                    <span class="input-group-addon border-1" id="editwarrantyyear" ><?php echo trans('lang.month');?></span>
+                                <div class="form-group col-md-6 mb-0">
+                                    <label><?php echo trans('lang.status'); ?></label>
+                                    <select name="status" id="status" required class="form-control">
+                                        <option value=""><?php echo trans('lang.status'); ?></option>
+                                        <option value="1"><?php echo trans('lang.readytodeploy'); ?></option>
+                                        <option value="2"><?php echo trans('lang.pending'); ?></option>
+                                        <option value="3"><?php echo trans('lang.archived'); ?></option>
+                                        <option value="4"><?php echo trans('lang.broken'); ?></option>
+                                        <option value="5"><?php echo trans('lang.lost'); ?></option>
+                                        <option value="6"><?php echo trans('lang.outofrepair'); ?></option>
+                                    </select>
                                 </div>
-                                <label class="error" for="warranty"></label>
                             </div>
-                            <div class="form-group col-md-6 mb-0" >
-                            <label><?php echo trans('lang.status');?></label>
-                            <select name="status" id="editstatus" required class="form-control">
-                                <option value=""><?php echo trans('lang.status');?></option>
-                                <option value="1"><?php echo trans('lang.readytodeploy');?></option>
-                                <option value="2"><?php echo trans('lang.pending');?></option>
-                                <option value="3"><?php echo trans('lang.archived');?></option>
-                                <option value="4"><?php echo trans('lang.broken');?></option>
-                                <option value="5"><?php echo trans('lang.lost');?></option>
-                                <option value="6"><?php echo trans('lang.outofrepair');?></option>
-                            </select>
+
+                            <div class="form-group">
+                                <label><?php echo trans('lang.description'); ?></label>
+                                <textarea class="form-control" name="description" id="description"
+                                          placeholder="<?php echo trans('lang.description');?>"></textarea>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label><?php echo trans('lang.description');?></label>
-                            <textarea class="form-control" name="description" id="editdescription" placeholder="<?php echo trans('lang.description');?>"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label><?php echo trans('lang.picture');?></label>
-                            <input name="picture" type="file" id="editpicture" class=" form-control"  placeholder="<?php echo trans('lang.picture');?>"/>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="hidden" name="id" id="editid"/>
-                        <button type="submit" class="btn btn-primary"
-                            id="saveedit"><?php echo trans('lang.save');?></button>
-                        <button type="button" class="btn btn-default"
-                            data-dismiss="modal"><?php echo trans('lang.close');?></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--end edit data-->
-
-
-
-     <!--add checkout -->
-     <div id="checkout" class="modal fade" role="dialog" >
-        <div class="modal-dialog ">
-            <div class="modal-content">
-                <form action="#" id="formcheckout" enctype="multipart/form-data" autocomplete="off">
-                    <div class="modal-header">
-
-                        <h5 class="modal-title"><?php echo trans('lang.checkout');?></h5>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label><?php echo trans('lang.assettag');?></label>
-                                <input name="assettag" type="text" readonly id="checkoutassettag" class=" form-control" required placeholder="<?php echo trans('lang.assettag');?>"/>
+                            <div class="form-group">
+                                <label><?php echo trans('lang.picture'); ?></label>
+                                <input name="picture" type="file" id="picture" class=" form-control"
+                                       placeholder="<?php echo trans('lang.picture');?>"/>
                             </div>
-                            <div class="form-group col-md-12">
-                                <label><?php echo trans('lang.asset');?></label>
-                                <input name="asset" type="text" readonly id="checkoutname" class=" form-control" required placeholder="<?php echo trans('lang.asset');?>"/>
-                            </div>
+
 
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label><?php echo trans('lang.checkoutto');?></label>
-                                <select name="employeeid" id="checkoutemployeeid" required class="form-control">
-                                    <option value=""><?php echo trans('lang.employee');?></option>
-                                </select>
-                            </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary"
+                                    id="save"><?php echo trans('lang.save'); ?></button>
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal"><?php echo trans('lang.close'); ?></button>
                         </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-12 mb-0" >
-                                    <label for="checkoutdate" class="control-label"><?php echo trans('lang.checkoutdate');?></label>
-                                    <div class="input-group mb-0" >
-									<input class="form-control setdate" required="" placeholder="<?php echo trans('lang.checkoutdate');?>" id="checkoutdate" name="checkoutdate" type="text">
-                                    <span class="input-group-addon border-1" id="date" ><i class="fa fa-calendar"></i></span>
-                                </div>
-                                <label class="error" for="checkoutdate"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                    <input type="hidden" name="assetid" id="assetid"/>
-                        <button type="submit" class="btn btn-primary"
-                            id="savecheckout"><?php echo trans('lang.save');?></button>
-                        <button type="button" class="btn btn-default"
-                            data-dismiss="modal"><?php echo trans('lang.close');?></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--end checkout-->
-
-
-     <!--add checkin -->
-     <div id="checkin" class="modal fade" role="dialog" >
-        <div class="modal-dialog ">
-            <div class="modal-content">
-                <form action="#" id="formcheckin" enctype="multipart/form-data" autocomplete="off">
-                    <div class="modal-header">
-                        <h5 class="modal-title"><?php echo trans('lang.checkin');?></h5>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label><?php echo trans('lang.assettag');?></label>
-                                <input name="assettag" type="text" readonly id="checkinassettag" class=" form-control" required placeholder="<?php echo trans('lang.assettag');?>"/>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label><?php echo trans('lang.asset');?></label>
-                                <input name="asset" type="text" readonly id="checkinname" class=" form-control" required placeholder="<?php echo trans('lang.asset');?>"/>
-                            </div>
-
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-12 mb-0" >
-                                    <label for="checkindate" class="control-label"><?php echo trans('lang.checkindate');?></label>
-                                    <div class="input-group mb-0" >
-                                    <input class="form-control setdate" required="" placeholder="<?php echo trans('lang.checkindate');?>" id="checkindate" name="checkindate" type="text">
-                                    <span class="input-group-addon border-1" id="date" ><i class="fa fa-calendar"></i></span>
-                                </div>
-                                <label class="error" for="checkindate"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                    <input type="hidden" name="employeeid" id="checkinemployeeid" value="0" />
-                    <input type="hidden" name="assetid" id="checkinassetid"/>
-                        <button type="submit" class="btn btn-primary"
-                            id="savecheckin"><?php echo trans('lang.save');?></button>
-                        <button type="button" class="btn btn-default"
-                            data-dismiss="modal"><?php echo trans('lang.close');?></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!--end checkin-->
-
-
-    <!--delete data -->
-    <div class="modal fade" id="delete" role="dialog">
-        <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <form action="#" id="formdelete">
-                <div class="modal-header">
-                    <h5 class="modal-title"><?php echo trans('lang.delete');?></h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </form>
                 </div>
-                <div class="modal-body">
-                    <p><?php echo trans('lang.delete_confirm');?></p>
-                    <input type="hidden" value="" name="id" id="iddelete"/>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="delete"><?php echo trans('lang.delete');?></button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo trans('lang.close');?></button>
-                </div>
-            </form>
+            </div>
         </div>
-        </div>
-    </div>
-    <!--end delete data -->
-</section>
+        <!--end add data-->
 
-<script>
+        <!--edit new data -->
+        <div id="edit" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <form action="#" id="formedit" enctype="multipart/form-data">
+                        <div class="modal-header">
+
+                            <h5 class="modal-title"><?php echo trans('lang.edit_data'); ?></h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div
+                                class="messageexist alert alert-success display-none"><?php echo trans('lang.tag_exist'); ?></div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label><?php echo trans('lang.name'); ?></label>
+                                    <input name="name" type="text" id="editname" class=" form-control" required
+                                           placeholder="<?php echo trans('lang.name');?>"/>
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label><?php echo trans('lang.assettag'); ?></label>
+                                    <input name="assettag" type="text" id="editassettag" class=" form-control" required
+                                           placeholder="<?php echo trans('lang.assettag');?>"/>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label><?php echo trans('lang.supplier'); ?></label>
+                                    <select name="supplierid" id="editsupplierid" required class="form-control">
+                                        <option value=""><?php echo trans('lang.supplier'); ?></option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group col-md-6">
+                                    <label><?php echo trans('lang.location'); ?></label>
+                                    <select name="locationid" id="editlocationid" required class="form-control">
+                                        <option value=""><?php echo trans('lang.location'); ?></option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label><?php echo trans('lang.brand'); ?></label>
+                                    <select name="brandid" id="editbrandid" required class="form-control">
+                                        <option value=""><?php echo trans('lang.brand'); ?></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label><?php echo trans('lang.serial'); ?></label>
+                                    <input name="serial" type="text" id="editserial" class="form-control " required
+                                           placeholder="<?php echo trans('lang.serial');?>"/>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label><?php echo trans('lang.assettype'); ?></label>
+                                    <select name="typeid" id="edittypeid" required class="form-control">
+                                        <option value=""><?php echo trans('lang.assettype'); ?></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 mb-0">
+                                    <label for="cost" class="control-label"><?php echo trans('lang.cost'); ?></label>
+                                    <div class="input-group mb-0">
+                                        <span class="input-group-addon setcurrency border-1" id="editcurrency"></span>
+                                        <input class="form-control number" required=""
+                                               placeholder="<?php echo trans('lang.cost');?>" id="editcost" name="cost"
+                                               type="text">
+                                    </div>
+                                    <label class="error" for="cost"></label>
+                                </div>
+                                <div class="form-group col-md-6 mb-0">
+                                    <label for="purchasedate"
+                                           class="control-label"><?php echo trans('lang.purchasedate'); ?></label>
+                                    <div class="input-group mb-0">
+                                        <input class="form-control setdate" required=""
+                                               placeholder="<?php echo trans('lang.purchasedate');?>"
+                                               id="editpurchasedate" name="purchasedate" type="text">
+                                        <span class="input-group-addon border-1" id="editdate"><i
+                                                class="fa fa-calendar"></i></span>
+                                    </div>
+                                    <label class="error" for="purchasedate"></label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 mb-0">
+                                    <label for="warranty"
+                                           class="control-label"><?php echo trans('lang.warranty'); ?></label>
+                                    <div class="input-group mb-0">
+                                        <input class="form-control number" required=""
+                                               placeholder="<?php echo trans('lang.warranty');?>" id="editwarranty"
+                                               name="warranty" type="text">
+                                        <span class="input-group-addon border-1"
+                                              id="editwarrantyyear"><?php echo trans('lang.month'); ?></span>
+                                    </div>
+                                    <label class="error" for="warranty"></label>
+                                </div>
+                                <div class="form-group col-md-6 mb-0">
+                                    <label><?php echo trans('lang.status'); ?></label>
+                                    <select name="status" id="editstatus" required class="form-control">
+                                        <option value=""><?php echo trans('lang.status'); ?></option>
+                                        <option value="1"><?php echo trans('lang.readytodeploy'); ?></option>
+                                        <option value="2"><?php echo trans('lang.pending'); ?></option>
+                                        <option value="3"><?php echo trans('lang.archived'); ?></option>
+                                        <option value="4"><?php echo trans('lang.broken'); ?></option>
+                                        <option value="5"><?php echo trans('lang.lost'); ?></option>
+                                        <option value="6"><?php echo trans('lang.outofrepair'); ?></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo trans('lang.description'); ?></label>
+                                <textarea class="form-control" name="description" id="editdescription"
+                                          placeholder="<?php echo trans('lang.description');?>"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo trans('lang.picture'); ?></label>
+                                <input name="picture" type="file" id="editpicture" class=" form-control"
+                                       placeholder="<?php echo trans('lang.picture');?>"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="id" id="editid"/>
+                            <button type="submit" class="btn btn-primary"
+                                    id="saveedit"><?php echo trans('lang.save'); ?></button>
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal"><?php echo trans('lang.close'); ?></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--end edit data-->
+
+
+        <!--add checkout -->
+        <div id="checkout" class="modal fade" role="dialog">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <form action="#" id="formcheckout" enctype="multipart/form-data" autocomplete="off">
+                        <div class="modal-header">
+
+                            <h5 class="modal-title"><?php echo trans('lang.checkout'); ?></h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label><?php echo trans('lang.assettag'); ?></label>
+                                    <input name="assettag" type="text" readonly id="checkoutassettag"
+                                           class=" form-control" required
+                                           placeholder="<?php echo trans('lang.assettag');?>"/>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label><?php echo trans('lang.asset'); ?></label>
+                                    <input name="asset" type="text" readonly id="checkoutname" class=" form-control"
+                                           required placeholder="<?php echo trans('lang.asset');?>"/>
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label><?php echo trans('lang.checkoutto'); ?></label>
+                                    <select name="employeeid" id="checkoutemployeeid" required class="form-control">
+                                        <option value=""><?php echo trans('lang.employee'); ?></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-12 mb-0">
+                                    <label for="checkoutdate"
+                                           class="control-label"><?php echo trans('lang.checkoutdate'); ?></label>
+                                    <div class="input-group mb-0">
+                                        <input class="form-control setdate" required=""
+                                               placeholder="<?php echo trans('lang.checkoutdate');?>" id="checkoutdate"
+                                               name="checkoutdate" type="text">
+                                        <span class="input-group-addon border-1" id="date"><i
+                                                class="fa fa-calendar"></i></span>
+                                    </div>
+                                    <label class="error" for="checkoutdate"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="assetid" id="assetid"/>
+                            <button type="submit" class="btn btn-primary"
+                                    id="savecheckout"><?php echo trans('lang.save'); ?></button>
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal"><?php echo trans('lang.close'); ?></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--end checkout-->
+
+
+        <!--add checkin -->
+        <div id="checkin" class="modal fade" role="dialog">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <form action="#" id="formcheckin" enctype="multipart/form-data" autocomplete="off">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><?php echo trans('lang.checkin'); ?></h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label><?php echo trans('lang.assettag'); ?></label>
+                                    <input name="assettag" type="text" readonly id="checkinassettag"
+                                           class=" form-control" required
+                                           placeholder="<?php echo trans('lang.assettag');?>"/>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label><?php echo trans('lang.asset'); ?></label>
+                                    <input name="asset" type="text" readonly id="checkinname" class=" form-control"
+                                           required placeholder="<?php echo trans('lang.asset');?>"/>
+                                </div>
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-12 mb-0">
+                                    <label for="checkindate"
+                                           class="control-label"><?php echo trans('lang.checkindate'); ?></label>
+                                    <div class="input-group mb-0">
+                                        <input class="form-control setdate" required=""
+                                               placeholder="<?php echo trans('lang.checkindate');?>" id="checkindate"
+                                               name="checkindate" type="text">
+                                        <span class="input-group-addon border-1" id="date"><i
+                                                class="fa fa-calendar"></i></span>
+                                    </div>
+                                    <label class="error" for="checkindate"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="employeeid" id="checkinemployeeid" value="0"/>
+                            <input type="hidden" name="assetid" id="checkinassetid"/>
+                            <button type="submit" class="btn btn-primary"
+                                    id="savecheckin"><?php echo trans('lang.save'); ?></button>
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal"><?php echo trans('lang.close'); ?></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--end checkin-->
+
+
+        <!--delete data -->
+        <div class="modal fade" id="delete" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <form action="#" id="formdelete">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><?php echo trans('lang.delete'); ?></h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p><?php echo trans('lang.delete_confirm'); ?></p>
+                            <input type="hidden" value="" name="id" id="iddelete"/>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary"
+                                    id="delete"><?php echo trans('lang.delete'); ?></button>
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal"><?php echo trans('lang.close'); ?></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--end delete data -->
+    </section>
+
+    <script>
 (function($) {
 "use strict";
     $('#data').DataTable({
@@ -515,7 +579,7 @@
                 extend: 'copy',
                 text: 'Copy <i class="fa fa-files-o"></i>',
                 className: 'btn btn-sm btn-fill btn-info ',
-                title: '<?php echo trans('lang.asset_list ');?>',
+                title: '<?php echo trans('lang.asset_list '); ?>',
                 exportOptions: {
                     columns: [2, 3, 4 ,5, 6 ,7 ,8, 9, 10]
                 }
@@ -524,7 +588,7 @@
                 extend: 'csv',
                 text: 'CSV <i class="fa fa-file-excel-o"></i>',
                 className: 'btn btn-sm btn-fill btn-info ',
-                title: '<?php echo trans('lang.asset_list');?>',
+                title: '<?php echo trans('lang.asset_list'); ?>',
                 exportOptions: {
                     columns: [2, 3, 4 ,5, 6 ,7 ,8, 9, 10]
                 }
@@ -533,7 +597,7 @@
                 extend: 'pdf',
                 text: 'PDF <i class="fa fa-file-pdf-o"></i>',
                 className: 'btn btn-sm btn-fill btn-info ',
-                title: '<?php echo trans('lang.asset_list');?>',
+                title: '<?php echo trans('lang.asset_list'); ?>',
                 orientation: 'landscape',
                 exportOptions: {
                     columns: [2, 3, 4 ,5, 6 ,7 ,8, 9, 10]
@@ -546,7 +610,7 @@
             },
             {
                 extend: 'print',
-                title: '<?php echo trans('lang.asset_list');?>',
+                title: '<?php echo trans('lang.asset_list'); ?>',
                 className: 'btn btn-sm btn-fill btn-info ',
                 text: 'Print <i class="fa fa-print"></i>',
                 exportOptions: {
@@ -925,5 +989,6 @@ $('#delete').on('show.bs.modal', function(e) {
 });
 })(jQuery);
 
-</script>
+
+    </script>
 @endsection

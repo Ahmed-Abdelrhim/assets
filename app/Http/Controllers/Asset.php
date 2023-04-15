@@ -33,6 +33,10 @@ class Asset extends Controller
         return view('asset.index');
     }
 
+    public function create() {
+        return view('asset.create');
+    }
+
 
     /**
      * get  detail page

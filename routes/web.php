@@ -1,6 +1,10 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocaleLanguageController;
+use App\Http\Controllers\Supplier;
+use App\Http\Controllers\Asset;
+use App\Http\Controllers\Brand;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,19 +22,34 @@ Route::get('locale',[LocaleLanguageController::class,'locale']);
 
 Route::get('/','Home@index');
 Route::get('/home','Home@index')->name('home');
+
+//Brand
 Route::get('/brandlist','Brand@index');
+Route::get('Brand/Create',[Brand::class,'create'])->name('brand.create');
+
 Route::get('/departmentlist','Department@index');
 Route::get('/assettypelist','AssetType@index');
 Route::get('/locationlist','Location@index');
 Route::get('/employeeslist','Employees@index');
+
 Route::get('/supplierlist','Supplier@index');
+Route::get('Supplier/Create',[Supplier::class,'create'])->name('supplier.create');
+
+
 Route::get('/userlist','User@index');
 Route::get('/settinglist','Settings@index');
+
+//Assets
 Route::get('/assetlist','Asset@index');
+Route::get('AssetList/Create',[\App\Http\Controllers\Asset::class,'create'])->name('asset.create');
 Route::get('/assetlist/detail/{id}','Asset@detail');
 Route::get('/assetlist/generatelabel/{id}', 'Asset@generatelabel');
+
+//Components
 Route::get('/componentlist','Component@index');
 Route::get('/componentlist/detail/{componentid}','Component@detail');
+
+//Maintenance
 Route::get('/maintenancelist','Maintenance@index');
 
 
