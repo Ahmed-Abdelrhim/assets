@@ -103,13 +103,16 @@ class Brand extends Controller
 
         if ($insert) {
             $res['success'] = 'success';
+            session()->put('message' , 'Brand Was Created Successfully');
+            session()->put('alert-type' , 'success');
 
         } else {
             $res['success'] = 'failed';
+            session()->put('message' , 'Something Went Wrong');
+            session()->put('alert-type' , 'error');
         }
 
-        session()->put('message' , 'Brand Was Created Successfully');
-        session()->put('alert-type' , 'success');
+
 
         return response($res);
     }

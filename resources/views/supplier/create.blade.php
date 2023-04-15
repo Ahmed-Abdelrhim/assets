@@ -339,13 +339,16 @@
                     $('#country').val('');
                     $('#address').val('');
 
-                    iziToast.success(
-                        {
-                            'title' : 'Success',
-                            'message' : 'Supplier Was Added Successfully',
-                            'position' : 'topRight',
-                        }
-                    );
+                    window.location.href = 'http://127.0.0.1:8000/supplierlist '; //Will take you to SupplierList.
+
+
+                    {{--                    iziToast.success(--}}
+                    {{--                        {--}}
+                    {{--                            'title' : 'Success',--}}
+                    {{--                            'message' : 'Supplier Was Added Successfully',--}}
+                    {{--                            'position' : 'topRight',--}}
+                    {{--                        }--}}
+                    {{--                    );--}}
 
                 }
                 if(data.message=='exist'){

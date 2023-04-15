@@ -139,8 +139,13 @@ class Supplier extends Controller
             if ($insert) {
                 $res['message'] = 'success';
 
+                session()->put('message' , 'Supplier Was Added Successfully');
+                session()->put('alert-type' , 'success');
+
             } else {
                 $res['message'] = 'failed';
+                session()->put('message' , 'Something Went Wrong');
+                session()->put('alert-type' , 'error');
             }
 
         }
