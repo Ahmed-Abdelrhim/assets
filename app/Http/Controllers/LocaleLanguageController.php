@@ -22,4 +22,9 @@ class LocaleLanguageController extends Controller
     {
         return app()->getLocale();
     }
+
+    public function play()
+    {
+        return url()->full();
+    }
 }

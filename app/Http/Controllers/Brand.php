@@ -108,6 +108,9 @@ class Brand extends Controller
             $res['success'] = 'failed';
         }
 
+        session()->put('message' , 'Brand Was Created Successfully');
+        session()->put('alert-type' , 'success');
+
         return response($res);
     }
 

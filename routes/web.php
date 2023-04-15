@@ -19,6 +19,7 @@ use App\Http\Controllers\Brand;
 Route::get('change_locale/{iso}',[LocaleLanguageController::class,'changeLanguage'])->name('change_locale');
 
 Route::get('locale',[LocaleLanguageController::class,'locale']);
+Route::get('play',[LocaleLanguageController::class,'play']);
 
 Route::get('/','Home@index');
 Route::get('/home','Home@index')->name('home');

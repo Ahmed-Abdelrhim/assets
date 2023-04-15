@@ -425,8 +425,8 @@
             break;
     }
 
-
-
+    {{  Session::forget('message')  }}  // Removes a specific variable
+    {{  Session::forget('alert-type')  }}  // Removes a specific variable
     @endif
 
 

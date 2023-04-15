@@ -44,13 +44,15 @@
 
 				$("#messagesuccess").css({'display':"block"});
 
-				// window.setTimeout(function(){location.reload()},2000)
+                // window.setTimeout(function(){location.reload()},2000);
 
-				iziToast.success({
-                title: 'Success',
-                message: 'Brand Was Added Successfully ',
-                position: 'topRight'
-                });
+                window.location.href = 'http://127.0.0.1:8000/brandlist '; //Will take you to Google.
+
+                {{--				iziToast.success({--}}
+                {{--                title: 'Success',--}}
+                {{--                message: 'Brand Was Added Successfully ',--}}
+                {{--                position: 'topRight'--}}
+                {{--                });--}}
 
 
 
