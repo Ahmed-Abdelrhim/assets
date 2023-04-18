@@ -113,6 +113,7 @@ Route::post('updatelocation', 'Location@update');
 Route::post('deletelocation', 'Location@delete');
 Route::post('locationbyid', 'Location@byid');
 
+
 //Employees API
 Route::get('employees', 'Employees@getdata');
 Route::get('listemployees', 'Employees@getrows');
@@ -128,6 +129,9 @@ Route::post('savesupplier', 'Supplier@save');
 Route::post('updatesupplier', 'Supplier@update');
 Route::post('deletesupplier', 'Supplier@delete');
 Route::post('supplierbyid', 'Supplier@byid');
+
+Route::get('supplier',[Supplier::class,'getdata']);
+
 
 //User API
 Route::get('user', 'User@getdata');
